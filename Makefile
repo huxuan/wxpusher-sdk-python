@@ -9,11 +9,13 @@ clean:
 	find . -name '.DS_Store' -print0 | xargs -0 rm -rf
 	find . -name '__pycache__' -print0 | xargs -0 rm -rf
 	-rm -rf build dist *.egg-info .eggs
-	-rm -rf .tox .coverage
+	-rm -rf .tox .coverage cover
+	-rm -rf Pipfile.lock
 	-rm -rf .vscode
+	-command -v pipenv > /dev/null && pipenv --venv > /dev/null 2>&1 && pipenv --rm
 
 install:
-	pip$(ENV) install .
+	pip${ENV} install .
 
 dev:
 	pip${ENV} install -e .
