@@ -1,6 +1,6 @@
-.PHONY: clean install lint flake8 pylint test dist upload
+.PHONY: clean install dev lint flake8 pylint dist upload uploadtest test
 
-PIPENV := $(shell command -v pipenv > /dev/null && echo env)
+ENV := $(shell command -v pipenv > /dev/null && echo env)
 PIPRUN := $(shell command -v pipenv > /dev/null && echo pipenv run)
 
 clean:
@@ -13,7 +13,10 @@ clean:
 	-rm -rf .vscode
 
 install:
-	pip$(PIPENV) install .
+	pip$(ENV) install .
+
+dev:
+	pip${ENV} install -e .
 
 lint: flake8 pylint
 
@@ -23,11 +26,14 @@ flake8:
 pylint:
 	${PIPRUN} pylint setup.py wxpusher
 
-test:
-	tox
-
-dist: clean
-	python setup.py sdist bdist_wheel
+dist: clean dev
+	${PIPRUN} python setup.py sdist bdist_wheel
 
 upload:
-	twine upload dist/*
+	${PIPRUN} twine upload dist/*
+
+uploadtest:
+	${PIPRUN} twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+test:
+	tox
