@@ -14,6 +14,10 @@ from setuptools import setup
 
 NAME = 'wxpusher'
 
+DESCRIPTION = (
+    'WxPusher Python SDK.'
+)
+
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',
@@ -26,10 +30,6 @@ CLASSIFIERS = [
 INSTALL_REQUIRES = [
     'requests',
 ]
-
-DESCRIPTION = (
-    'WxPusher Python SDK.'
-)
 
 KEYWORDS = [
     'wxpusher',
