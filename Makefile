@@ -8,8 +8,9 @@ clean:
 	find . -name '*.swp' -print0 | xargs -0 rm -f
 	find . -name '.DS_Store' -print0 | xargs -0 rm -rf
 	find . -name '__pycache__' -print0 | xargs -0 rm -rf
-	-rm -rf build dist *.egg-info
+	-rm -rf build dist *.egg-info .eggs
 	-rm -rf .tox .coverage
+	-rm -rf .vscode
 
 install:
 	pip$(PIPENV) install .
