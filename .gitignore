@@ -129,6 +129,9 @@ dmypy.json
 .pyre/
 
 # Custom
+*.swp
+.DS_Store
 .vscode
 Pipfile.lock
 config.py
+cover/
