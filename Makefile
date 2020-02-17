@@ -15,20 +15,20 @@ clean:
 	-command -v pipenv > /dev/null && pipenv --venv > /dev/null 2>&1 && pipenv --rm
 
 install:
-	pip${ENV} install .
-
-dev:
 	pip${ENV} install -e .
 
-lint: flake8 pylint
+dev:
+	pip${ENV} install --dev
 
-flake8:
+lint: dev flake8 pylint
+
+flake8: dev
 	${PIPRUN} flake8 setup.py wxpusher
 
-pylint:
+pylint: dev
 	${PIPRUN} pylint setup.py wxpusher
 
-dist: clean dev
+dist: clean install
 	${PIPRUN} python setup.py sdist bdist_wheel
 
 upload:
