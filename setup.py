@@ -10,6 +10,7 @@ Email: i(at)huxuan.org
 from pkg_resources import DistributionNotFound
 from pkg_resources import get_distribution
 
+from setuptools import find_packages
 from setuptools import setup
 
 NAME = 'wxpusher'
@@ -67,7 +68,7 @@ setup(name=NAME,
       author='Xuan (Sean) Hu',
       author_email='i+wxpusher@huxuan.org',
       license='Apache License 2.0',
-      packages=['wxpusher'],
+      packages=find_packages(exclude=['tests']),
       use_scm_version=True,
       setup_requires=['setuptools_scm'],
       install_requires=INSTALL_REQUIRES,
