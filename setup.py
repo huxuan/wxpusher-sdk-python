@@ -9,7 +9,6 @@ Email: i(at)huxuan.org
 """
 from pkg_resources import DistributionNotFound
 from pkg_resources import get_distribution
-
 from setuptools import find_packages
 from setuptools import setup
 

@@ -23,7 +23,10 @@ dev:
 lint: dev flake8 pylint
 
 flake8: dev
-	${PIPRUN} flake8 setup.py wxpusher
+	${PIPRUN} flake8 \
+		--import-order-style google \
+		--application-import-names wxpusher \
+		setup.py wxpusher
 
 pylint: dev
 	${PIPRUN} pylint setup.py wxpusher
