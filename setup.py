@@ -54,6 +54,7 @@ def readme():
     content = open('README.md').read()
     content = content.replace('README.md', f'{BASE_URL}/README.md', 1)
     content = content.replace('README-en.md', f'{BASE_URL}/README-en.md', 1)
+    content = content.replace('README-zh.md', f'{BASE_URL}/README-zh.md', 1)
     return content
 
 
@@ -65,7 +66,7 @@ setup(name=NAME,
       keywords=' '.join(KEYWORDS),
       url=PROJECT_URL,
       author='Xuan (Sean) Hu',
-      author_email='i+wxpusher@huxuan.org',
+      author_email=f'i+{NAME}@huxuan.org',
       license='Apache License 2.0',
       packages=find_packages(exclude=['tests']),
       use_scm_version=True,
