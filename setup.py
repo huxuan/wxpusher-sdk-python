@@ -13,6 +13,8 @@ from setuptools import find_packages
 from setuptools import setup
 
 NAME = 'wxpusher'
+AUTHOR = 'huxuan'
+EMAIL = f'i+{NAME}@huxuan.org'
 
 DESCRIPTION = (
     'WxPusher Python SDK.'
@@ -65,8 +67,8 @@ setup(name=NAME,
       classifiers=CLASSIFIERS,
       keywords=' '.join(KEYWORDS),
       url=PROJECT_URL,
-      author='Xuan (Sean) Hu',
-      author_email=f'i+{NAME}@huxuan.org',
+      author=AUTHOR,
+      author_email=EMAIL,
       license='Apache License 2.0',
       packages=find_packages(exclude=['tests']),
       use_scm_version=True,
